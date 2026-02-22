@@ -221,20 +221,46 @@
   </footer>
 
   <script>
-    document.getElementById("leadForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(e.target);
-      const subject = encodeURIComponent(`Nueva solicitud web - ${data.get("servicio")}`);
-      const body = encodeURIComponent(
-        `Nombre: ${data.get("nombre")}\n` +
-        `Correo: ${data.get("email")}\n` +
-        `Teléfono: ${data.get("telefono")}\n` +
-        `Servicio: ${data.get("servicio")}\n\n` +
-        `Detalles:\n${data.get("mensaje")}\n\n` +
-        `*Favor de responder con propuesta y opciones de pago.*`
-      );
-      window.location.href = `mailto:chef@franko.com?subject=${subject}&body=${body}`;
-    });
+    (function () {
+      const DESTINO_EMAIL = "chef@franko.com";
+
+      function enviarSolicitudPorCorreo(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const subject = encodeURIComponent(`Nueva solicitud web - ${data.get("servicio")}`);
+        const body = encodeURIComponent(
+          `Nombre: ${data.get("nombre")}\n` +
+          `Correo: ${data.get("email")}\n` +
+          `Teléfono: ${data.get("telefono")}\n` +
+          `Servicio: ${data.get("servicio")}\n\n` +
+          `Detalles:\n${data.get("mensaje")}\n\n` +
+          `*Favor de responder con propuesta y opciones de pago.*`
+        );
+
+        window.location.href = `mailto:${DESTINO_EMAIL}?subject=${subject}&body=${body}`;
+      }
+
+      function inicializarFormularioLead() {
+        const form = document.getElementById("leadForm");
+
+        if (!form || form.dataset.sqReady === "true") {
+          return;
+        }
+
+        form.addEventListener("submit", enviarSolicitudPorCorreo);
+        form.dataset.sqReady = "true";
+      }
+
+      // Compatible con Squarespace Code Injection (carga global del footer en todas las páginas).
+      document.addEventListener("DOMContentLoaded", inicializarFormularioLead);
+      window.addEventListener("load", inicializarFormularioLead);
+
+      // Soporte para navegación interna/render dinámico en Squarespace.
+      const observer = new MutationObserver(inicializarFormularioLead);
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      inicializarFormularioLead();
+    })();
   </script>
 </body>
 </html>
