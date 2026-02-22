@@ -223,43 +223,52 @@
   <script>
     (function () {
       const DESTINO_EMAIL = "chef@franko.com";
+      const FORM_SELECTORES = ["#leadForm", "form[data-form-id='contact']", "form.sqs-block-form"];
 
-      function enviarSolicitudPorCorreo(e) {
-        e.preventDefault();
-        const data = new FormData(e.target);
-        const subject = encodeURIComponent(`Nueva solicitud web - ${data.get("servicio")}`);
+      function obtenerValor(form, candidatos) {
+        for (const selector of candidatos) {
+          const campo = form.querySelector(selector);
+          if (campo && typeof campo.value === "string" && campo.value.trim()) {
+            return campo.value.trim();
+          }
+        }
+        return "";
+      }
+
+      function construirCorreo(form) {
+        const nombre = obtenerValor(form, ["#nombre", "[name='nombre']", "[name='first-name']", "[name='name']"]);
+        const email = obtenerValor(form, ["#email", "[name='email']"]);
+        const telefono = obtenerValor(form, ["#telefono", "[name='telefono']", "[name='phone']", "[type='tel']"]);
+        const servicio = obtenerValor(form, ["#servicio", "[name='servicio']", "[name='subject']"]);
+        const mensaje = obtenerValor(form, ["#mensaje", "[name='mensaje']", "[name='message']", "textarea"]);
+
+        const subject = encodeURIComponent(`Nueva solicitud web - ${servicio || "Consulta"}`);
         const body = encodeURIComponent(
-          `Nombre: ${data.get("nombre")}\n` +
-          `Correo: ${data.get("email")}\n` +
-          `Teléfono: ${data.get("telefono")}\n` +
-          `Servicio: ${data.get("servicio")}\n\n` +
-          `Detalles:\n${data.get("mensaje")}\n\n` +
+          `Nombre: ${nombre || "No especificado"}\n` +
+          `Correo: ${email || "No especificado"}\n` +
+          `Teléfono: ${telefono || "No especificado"}\n` +
+          `Servicio: ${servicio || "No especificado"}\n\n` +
+          `Detalles:\n${mensaje || "Sin mensaje"}\n\n` +
           `*Favor de responder con propuesta y opciones de pago.*`
         );
 
-        window.location.href = `mailto:${DESTINO_EMAIL}?subject=${subject}&body=${body}`;
+        return `mailto:${DESTINO_EMAIL}?subject=${subject}&body=${body}`;
       }
 
-      function inicializarFormularioLead() {
-        const form = document.getElementById("leadForm");
+      function esFormularioObjetivo(form) {
+        return FORM_SELECTORES.some((selector) => form.matches(selector));
+      }
 
-        if (!form || form.dataset.sqReady === "true") {
+      document.addEventListener("submit", function (e) {
+        const form = e.target;
+
+        if (!(form instanceof HTMLFormElement) || !esFormularioObjetivo(form)) {
           return;
         }
 
-        form.addEventListener("submit", enviarSolicitudPorCorreo);
-        form.dataset.sqReady = "true";
-      }
-
-      // Compatible con Squarespace Code Injection (carga global del footer en todas las páginas).
-      document.addEventListener("DOMContentLoaded", inicializarFormularioLead);
-      window.addEventListener("load", inicializarFormularioLead);
-
-      // Soporte para navegación interna/render dinámico en Squarespace.
-      const observer = new MutationObserver(inicializarFormularioLead);
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      inicializarFormularioLead();
+        e.preventDefault();
+        window.location.href = construirCorreo(form);
+      });
     })();
   </script>
 </body>
