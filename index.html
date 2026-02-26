@@ -3,82 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chef Franko | Servicios gastronómicos, consultoría y reservas personalizadas.">
-  <title>Chef Franko | Experiencias Gastronómicas</title>
+  <meta name="description" content="Ing. José Fabio Gonzales Solórzano | Servicio automotriz a domicilio, aire acondicionado, grúa, venta y reparaciones en Santa Cruz, Guanacaste.">
+  <title>Servicio Automotriz + Aire Acondicionado | Ing. José Fabio Gonzales Solórzano</title>
   <style>
     :root {
-      --bg: #f8f6f2;
+      --bg: #f2f6fb;
       --surface: #ffffff;
-      --primary: #8a5a44;
-      --secondary: #2d2a26;
-      --accent: #d8b07d;
-      --muted: #6b675f;
-      --shadow: rgba(45, 42, 38, 0.12);
+      --surface-soft: #f8fbff;
+      --primary: #0e3a64;
+      --primary-2: #155184;
+      --secondary: #0b233d;
+      --accent: #f6b335;
+      --accent-2: #ffe3a7;
+      --text: #1f2a3a;
+      --muted: #63748a;
+      --border: #d7e1ec;
+      --shadow: rgba(10, 35, 61, 0.13);
+      --radius: 14px;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: "Lato", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--secondary);
-      line-height: 1.5;
+      color: var(--text);
+      font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top right, #e7f2ff 0%, transparent 45%),
+        var(--bg);
+      line-height: 1.6;
     }
 
     h1, h2, h3 {
-      font-family: "Playfair Display", Georgia, serif;
       margin-top: 0;
+      line-height: 1.2;
+      color: var(--secondary);
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1140px, 92%);
       margin: 0 auto;
     }
 
-    .hero {
-      min-height: 68vh;
-      display: grid;
-      place-items: center;
+    .top-banner {
+      background: linear-gradient(90deg, var(--accent), #ffc85b);
+      color: #1c2430;
       text-align: center;
-      padding: 3rem 1rem;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover;
-      color: #fff;
+      padding: 0.72rem 1rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      font-size: 0.95rem;
     }
 
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.8rem); }
-    .hero p { max-width: 700px; margin: 0 auto 1.2rem; }
+    .hero {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 5.5rem 1rem 4.4rem;
+      background:
+        linear-gradient(120deg, rgba(6, 28, 50, 0.84), rgba(21, 81, 132, 0.73)),
+        url("https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1600&q=80") center/cover;
+      overflow: hidden;
+    }
 
-    .btn {
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -100px -8%;
+      height: 180px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0;
+      opacity: 0.94;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
       display: inline-block;
-      background: var(--accent);
-      color: #1f1b17;
-      text-decoration: none;
-      padding: 0.8rem 1.2rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      padding: 0.35rem 0.8rem;
       border-radius: 999px;
+      font-size: 0.85rem;
       font-weight: 700;
     }
 
-    section { padding: 3.5rem 0; }
+    .hero h1 {
+      font-size: clamp(2rem, 4.8vw, 3.5rem);
+      color: #fff;
+      margin-bottom: 0.7rem;
+    }
 
-    .cards {
+    .hero p {
+      margin: 0 auto 1.45rem;
+      max-width: 790px;
+      font-size: 1.08rem;
+      color: #f4f8fd;
+    }
+
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.8rem 1.2rem;
+      font-weight: 800;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1f2633;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    section { padding: 3.2rem 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .service-grid,
+    .gallery,
+    .testimonials,
+    .pillars {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .card {
       background: var(--surface);
-      border-radius: 14px;
-      padding: 1.2rem;
-      box-shadow: 0 4px 18px var(--shadow);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      box-shadow: 0 4px 14px var(--shadow);
+    }
+
+    .card h3 { margin-bottom: 0.45rem; }
+
+    .pillars {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .pillar {
+      background: linear-gradient(180deg, #fff, var(--surface-soft));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
     }
 
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.7rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .gallery img {
@@ -86,155 +194,242 @@
       aspect-ratio: 4 / 3;
       object-fit: cover;
       border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
     }
 
-    .contact {
-      background: var(--surface);
-      border-radius: 16px;
-      box-shadow: 0 4px 18px var(--shadow);
-      padding: 1.4rem;
+    .testimonials {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    form {
+    blockquote {
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px var(--shadow);
+      padding: 1rem 1.1rem;
+      font-style: italic;
+    }
+
+    blockquote footer {
+      margin-top: 0.75rem;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .contact-wrap {
       display: grid;
-      gap: 0.8rem;
-      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      grid-template-columns: 1.2fr 1fr;
     }
 
-    form .full { grid-column: 1 / -1; }
+    .contact-box,
+    .squarespace-tip {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px var(--shadow);
+      padding: 1.2rem;
+    }
 
-    label {
-      font-size: 0.9rem;
-      display: block;
-      margin-bottom: 0.25rem;
+    .contact-box ul,
+    .squarespace-tip ol {
+      margin: 0.6rem 0 0;
+      padding-left: 1rem;
       color: var(--muted);
     }
 
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid #d9d3ca;
-      border-radius: 10px;
-      padding: 0.65rem;
-      font: inherit;
-      background: #fff;
+    .squarespace-tip {
+      background: linear-gradient(180deg, #fff, #f9fcff);
     }
 
-    textarea { min-height: 110px; resize: vertical; }
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
 
-    button {
-      border: 0;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 10px;
-      padding: 0.8rem 1rem;
-      font: inherit;
+    .tag {
+      background: var(--accent-2);
+      color: #55380c;
+      border-radius: 999px;
+      padding: 0.28rem 0.7rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      cursor: pointer;
     }
 
     footer {
+      margin-top: 1.2rem;
       text-align: center;
-      padding: 1.5rem 0 2rem;
       color: var(--muted);
-      font-size: 0.95rem;
+      padding: 1.5rem 0 2rem;
+      font-size: 0.94rem;
     }
 
-    @media (max-width: 720px) {
-      form { grid-template-columns: 1fr; }
+    @media (max-width: 860px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 4.6rem; }
+      .top-banner { font-size: 0.88rem; }
     }
   </style>
 </head>
 <body>
+  <div class="top-banner">
+    BANNER: SERVICIO AUTOMOTRIZ + AIRE ACONDICIONADO A DOMICILIO Y GRÚA EN TODA SANTA CRUZ, GUANACASTE · WhatsApp +506 8435 5705
+  </div>
+
   <header class="hero">
-    <div>
-      <h1>Chef Franko · Página elegante para tus clientes</h1>
+    <div class="container hero-inner">
+      <span class="badge">Atención rápida · A domicilio · Toda la zona</span>
+      <h1>Ing. José Fabio Gonzales Solórzano</h1>
       <p>
-        Servicios gastronómicos, consultoría y experiencias personalizadas.
-        Captamos solicitudes desde un formulario y negociamos pagos por correo.
+        Dos líneas de servicio en una sola empresa: <strong>servicio automotriz a domicilio</strong> y
+        <strong>servicio de aire acondicionado</strong> (instalación, reparación y mantenimiento),
+        además de <strong>grúa</strong> para emergencias.
       </p>
-      <a class="btn" href="#contacto">Solicitar propuesta</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/50684355705" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+        <a class="btn btn-secondary" href="#contacto">Solicitar información</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
     <section>
-      <h2>Servicios y consultoría</h2>
-      <div class="cards">
-        <article class="card"><h3>Eventos privados</h3><p>Cenas de autor, cumpleaños y reuniones especiales.</p></article>
-        <article class="card"><h3>Menús por temporada</h3><p>Diseño de menú bajo solicitud: verano, degustación y temáticos.</p></article>
-        <article class="card"><h3>Consultorio gastronómico</h3><p>Asesoría para restaurantes, carta, costos y experiencia de cliente.</p></article>
-        <article class="card"><h3>Servicio a domicilio</h3><p>Experiencia chef en casa con atención personalizada.</p></article>
+      <div class="section-head">
+        <h2>Servicios principales</h2>
+        <p>Trabajamos con calidad profesional para vehículos y sistemas de aire acondicionado, con cobertura en toda Santa Cruz, Guanacaste.</p>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar">
+          <h3>Servicio 1: Automotriz a domicilio</h3>
+          <p>Llegamos donde esté el cliente para diagnóstico, reparación e instalación en cualquier tipo de carro.</p>
+          <div class="quick-tags">
+            <span class="tag">Reparación</span>
+            <span class="tag">Instalación</span>
+            <span class="tag">Repuestos</span>
+            <span class="tag">Grúa</span>
+          </div>
+        </article>
+
+        <article class="pillar">
+          <h3>Servicio 2: Aire acondicionado</h3>
+          <p>Atención para equipos residenciales y comerciales: instalación, reparación, limpieza y mantenimiento preventivo.</p>
+          <div class="quick-tags">
+            <span class="tag">Instalación A/C</span>
+            <span class="tag">Mantenimiento</span>
+            <span class="tag">Carga y revisión</span>
+          </div>
+        </article>
       </div>
     </section>
 
     <section>
-      <h2>Galería</h2>
+      <div class="section-head">
+        <h2>Detalle de servicios</h2>
+        <p>Soluciones completas para que el cliente reciba ayuda en un solo contacto.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="card">
+          <h3>Reparación automotriz</h3>
+          <p>Diagnóstico y arreglo de fallas mecánicas y eléctricas directamente en sitio.</p>
+        </article>
+        <article class="card">
+          <h3>Instalaciones automotrices</h3>
+          <p>Colocación de componentes y accesorios con pruebas de funcionamiento.</p>
+        </article>
+        <article class="card">
+          <h3>Servicio de grúa</h3>
+          <p>Traslado seguro del vehículo cuando no puede moverse por su cuenta.</p>
+        </article>
+        <article class="card">
+          <h3>Instalación de aire acondicionado</h3>
+          <p>Montaje profesional con revisión de rendimiento y buenas prácticas.</p>
+        </article>
+        <article class="card">
+          <h3>Reparación y mantenimiento A/C</h3>
+          <p>Limpieza, revisión técnica y corrección de fallas para mejor eficiencia.</p>
+        </article>
+        <article class="card">
+          <h3>Cobertura total</h3>
+          <p>Disponibilidad en toda la zona de Santa Cruz, Guanacaste, Costa Rica.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Galería de trabajos realizados</h2>
+        <p>Ejemplos de trabajos automotrices, grúa y servicios de aire acondicionado.</p>
+      </div>
       <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=900&q=80" alt="Montaje de plato gourmet">
-        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=900&q=80" alt="Mesa elegante para evento">
-        <img src="https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?auto=format&fit=crop&w=900&q=80" alt="Chef preparando menú">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Restaurante con ambiente cálido">
+        <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1000&q=80" alt="Reparación automotriz en sitio">
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1000&q=80" alt="Servicio de grúa para vehículo">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Técnico instalando aire acondicionado">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1000&q=80" alt="Mantenimiento de aire acondicionado">
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Testimonios</h2>
+      </div>
+      <div class="testimonials">
+        <blockquote>
+          “Se me varó el carro y llegaron rápido con solución y muy buena atención.”
+          <footer>— Cliente en Santa Cruz Centro</footer>
+        </blockquote>
+        <blockquote>
+          “Me instalaron el aire acondicionado y quedó funcionando excelente. Recomendados.”
+          <footer>— Cliente en Huacas</footer>
+        </blockquote>
+        <blockquote>
+          “Tuve emergencia en carretera y el servicio de grúa fue puntual y seguro.”
+          <footer>— Cliente en Villarreal</footer>
+        </blockquote>
       </div>
     </section>
 
     <section id="contacto">
-      <div class="contact">
-        <h2>Formulario para captar clientes</h2>
-        <p>Completa este formulario y se abrirá un correo para negociar detalles y pagos contigo.</p>
-        <form id="leadForm">
-          <div>
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" required>
-          </div>
-          <div>
-            <label for="email">Correo</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div>
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" required>
-          </div>
-          <div>
-            <label for="servicio">Servicio de interés</label>
-            <select id="servicio" name="servicio" required>
-              <option value="">Selecciona</option>
-              <option>Evento privado</option>
-              <option>Menú personalizado</option>
-              <option>Consultoría</option>
-              <option>Chef a domicilio</option>
-            </select>
-          </div>
-          <div class="full">
-            <label for="mensaje">Detalles del evento / solicitud</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-          </div>
-          <div class="full">
-            <button type="submit">Enviar solicitud por email</button>
-          </div>
-        </form>
+      <div class="contact-wrap">
+        <div class="contact-box">
+          <h2>Área para recibir información</h2>
+          <p>Contáctenos para automotriz, aire acondicionado o grúa. Esta sección está lista para su página en Squarespace.</p>
+          <ul>
+            <li><strong>Nombre comercial:</strong> Servicio Automotriz y Aire Acondicionado</li>
+            <li><strong>Responsable:</strong> Ing. José Fabio Gonzales Solórzano</li>
+            <li><strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/50684355705" target="_blank" rel="noopener noreferrer">+506 8435 5705</a></li>
+            <li><strong>Ubicación:</strong> Santa Cruz, Guanacaste, Costa Rica</li>
+            <li><strong>Cobertura:</strong> Toda la zona, servicio a domicilio</li>
+            <li><strong>Especialidad:</strong> Cualquier tipo de carro + aire acondicionado + grúa</li>
+          </ul>
+        </div>
+
+        <aside class="squarespace-tip">
+          <h3>Adaptación rápida en Squarespace</h3>
+          <ol>
+            <li>Agregue un bloque <strong>Code</strong> en la página.</li>
+            <li>Pegue este HTML completo o el bloque <code>&lt;main&gt;</code>.</li>
+            <li>Mantenga el botón de WhatsApp para contacto inmediato.</li>
+            <li>Si quiere, luego reemplaza imágenes por fotos reales de trabajos.</li>
+          </ol>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 Chef Franko Salgado · Puerto Vallarta · WhatsApp +52 322 160 6843
+    © 2026 Servicio Automotriz y Aire Acondicionado · Ing. José Fabio Gonzales Solórzano · Santa Cruz, Guanacaste · +506 8435 5705
   </footer>
-
-  <script>
-    document.getElementById("leadForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(e.target);
-      const subject = encodeURIComponent(`Nueva solicitud web - ${data.get("servicio")}`);
-      const body = encodeURIComponent(
-        `Nombre: ${data.get("nombre")}\n` +
-        `Correo: ${data.get("email")}\n` +
-        `Teléfono: ${data.get("telefono")}\n` +
-        `Servicio: ${data.get("servicio")}\n\n` +
-        `Detalles:\n${data.get("mensaje")}\n\n` +
-        `*Favor de responder con propuesta y opciones de pago.*`
-      );
-      window.location.href = `mailto:chef@franko.com?subject=${subject}&body=${body}`;
-    });
-  </script>
 </body>
 </html>
