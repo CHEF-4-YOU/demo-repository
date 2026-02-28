@@ -3,273 +3,292 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chef Franko | Servicios gastronómicos, consultoría y reservas personalizadas.">
-  <title>Chef Franko | Experiencias Gastronómicas</title>
+  <meta name="description" content="Cotización gastronómica para eventos premium de Chef 4 You.">
+  <title>Cotización Gastronómica | Chef 4 You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
+    /*
+      Estilos encapsulados para uso en Squarespace.
+      Puedes pegar TODO este archivo en un bloque de código,
+      o copiar desde <section class="c4y-quote"> hasta </section>
+      y mover los estilos al CSS personalizado del sitio.
+    */
     :root {
-      --bg: #f8f6f2;
-      --surface: #ffffff;
-      --primary: #8a5a44;
-      --secondary: #2d2a26;
-      --accent: #d8b07d;
-      --muted: #6b675f;
-      --shadow: rgba(45, 42, 38, 0.12);
+      --c4y-bg: #f8f8f7;
+      --c4y-surface: #ffffff;
+      --c4y-text: #3e4451;
+      --c4y-muted: #667085;
+      --c4y-accent: #c6a75e;
+      --c4y-accent-soft: #efe5cd;
+      --c4y-line: #e8dfc9;
+      --c4y-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Lato", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--secondary);
-      line-height: 1.5;
+      background: var(--c4y-bg);
+      color: var(--c4y-text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    h1, h2, h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      margin-top: 0;
-    }
-
-    .container {
-      width: min(1100px, 92%);
+    .c4y-quote {
+      width: min(1120px, 92vw);
       margin: 0 auto;
+      padding: 32px 0 72px;
     }
 
-    .hero {
-      min-height: 68vh;
-      display: grid;
-      place-items: center;
+    .c4y-block {
+      padding: 56px 28px;
+      background: var(--c4y-surface);
+      border-radius: 22px;
+      border: 1px solid #f0eadf;
+      box-shadow: var(--c4y-shadow);
+      margin-top: 26px;
+    }
+
+    .c4y-block--soft {
+      background: linear-gradient(180deg, #fffdf8 0%, #fff 100%);
+      border: 1px solid var(--c4y-line);
+    }
+
+    .c4y-title,
+    .c4y-subtitle,
+    .c4y-plan h3 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.2;
+      color: #1f2937;
+    }
+
+    .c4y-title {
+      font-size: clamp(2rem, 5.6vw, 3.3rem);
       text-align: center;
-      padding: 3rem 1rem;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover;
-      color: #fff;
+      margin-top: 10px;
     }
 
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.8rem); }
-    .hero p { max-width: 700px; margin: 0 auto 1.2rem; }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #1f1b17;
-      text-decoration: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 700;
-    }
-
-    section { padding: 3.5rem 0; }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 1.2rem;
-      box-shadow: 0 4px 18px var(--shadow);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.7rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .contact {
-      background: var(--surface);
-      border-radius: 16px;
-      box-shadow: 0 4px 18px var(--shadow);
-      padding: 1.4rem;
-    }
-
-    form {
-      display: grid;
-      gap: 0.8rem;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    form .full { grid-column: 1 / -1; }
-
-    label {
-      font-size: 0.9rem;
-      display: block;
-      margin-bottom: 0.25rem;
-      color: var(--muted);
-    }
-
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid #d9d3ca;
-      border-radius: 10px;
-      padding: 0.65rem;
-      font: inherit;
-      background: #fff;
-    }
-
-    textarea { min-height: 110px; resize: vertical; }
-
-    button {
-      border: 0;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 10px;
-      padding: 0.8rem 1rem;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    footer {
+    .c4y-subtitle {
       text-align: center;
-      padding: 1.5rem 0 2rem;
-      color: var(--muted);
+      font-size: clamp(1.15rem, 3vw, 1.6rem);
+      color: var(--c4y-accent);
+      margin-bottom: 18px;
+    }
+
+    .c4y-tagline {
+      text-align: center;
+      color: var(--c4y-muted);
+      margin: 0;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .c4y-meta {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--c4y-muted);
       font-size: 0.95rem;
     }
 
-    @media (max-width: 720px) {
-      form { grid-template-columns: 1fr; }
+    .c4y-meta strong { color: #1f2937; }
+
+    .c4y-copy {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.75;
+      color: var(--c4y-muted);
+    }
+
+    .c4y-plans {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .c4y-plan {
+      border-radius: 16px;
+      border: 1px solid var(--c4y-line);
+      padding: 24px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .c4y-plan--featured {
+      border: 2px solid var(--c4y-accent);
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(198, 167, 94, 0.2);
+    }
+
+    .c4y-plan p {
+      margin: 0 0 12px;
+      color: var(--c4y-muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .c4y-price {
+      margin-top: auto;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #1f2937;
+    }
+
+    .c4y-price small {
+      display: block;
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: var(--c4y-muted);
+      margin-top: 4px;
+    }
+
+    .c4y-timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 760px;
+      margin-inline: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .c4y-timeline li {
+      background: #fff;
+      border: 1px solid var(--c4y-line);
+      border-left: 4px solid var(--c4y-accent);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #4b5563;
+    }
+
+    .c4y-hero-image {
+      min-height: 240px;
+      border-radius: 16px;
+      background: linear-gradient(100deg, rgba(16, 24, 40, 0.52), rgba(16, 24, 40, 0.46)),
+        url("HERO_GASTRONOMIA.jpg") center/cover no-repeat;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 30px;
+    }
+
+    .c4y-footer {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--c4y-muted);
+      line-height: 1.75;
+    }
+
+    .c4y-footer strong {
+      color: #1f2937;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.35rem;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 960px) {
+      .c4y-plans {
+        grid-template-columns: 1fr;
+      }
+
+      .c4y-plan--featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .c4y-block {
+        padding: 42px 18px;
+        border-radius: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div>
-      <h1>Chef Franko · Página elegante para tus clientes</h1>
-      <p>
-        Servicios gastronómicos, consultoría y experiencias personalizadas.
-        Captamos solicitudes desde un formulario y negociamos pagos por correo.
-      </p>
-      <a class="btn" href="#contacto">Solicitar propuesta</a>
+  <section class="c4y-quote" aria-label="Cotización de servicios gastronómicos">
+    <div class="c4y-block c4y-block--soft">
+      <p class="c4y-subtitle">Cotización de Servicios Gastronómicos</p>
+      <h1 class="c4y-title">Chef 4 You</h1>
+      <p class="c4y-tagline">Experiencia Cocktail Premium · 70 invitados</p>
+      <div class="c4y-meta">
+        <span><strong>Cliente:</strong> VANESABORRERO</span>
+        <span><strong>Fecha:</strong> [Colocar fecha]</span>
+      </div>
     </div>
-  </header>
 
-  <main class="container">
-    <section>
-      <h2>Servicios y consultoría</h2>
-      <div class="cards">
-        <article class="card"><h3>Eventos privados</h3><p>Cenas de autor, cumpleaños y reuniones especiales.</p></article>
-        <article class="card"><h3>Menús por temporada</h3><p>Diseño de menú bajo solicitud: verano, degustación y temáticos.</p></article>
-        <article class="card"><h3>Consultorio gastronómico</h3><p>Asesoría para restaurantes, carta, costos y experiencia de cliente.</p></article>
-        <article class="card"><h3>Servicio a domicilio</h3><p>Experiencia chef en casa con atención personalizada.</p></article>
+    <div class="c4y-block">
+      <h2 class="c4y-subtitle">Experiencia Integral · Incluye Todo</h2>
+      <p class="c4y-copy">
+        Planeación estratégica, compras, producción culinaria, montaje completo,
+        cristalería, vajilla, logística operativa, servicio profesional,
+        cantinero y supervisión directa del Chef Ejecutivo.
+      </p>
+    </div>
+
+    <div class="c4y-block c4y-block--soft">
+      <h2 class="c4y-subtitle">Opciones de Experiencia</h2>
+      <div class="c4y-plans">
+        <article class="c4y-plan">
+          <h3>Gold Accesible</h3>
+          <p><strong>7 canapés por persona</strong></p>
+          <p>Prosciutto relleno, roll de salmón cítrico, mil hojas de papa trufada, vasito camarón especiado, bocado nori fresco, higo con queso cabra.</p>
+          <p class="c4y-price">$68,500 MXN<small>$978 por persona</small></p>
+        </article>
+
+        <article class="c4y-plan c4y-plan--featured">
+          <h3>Premium</h3>
+          <p><strong>9 canapés por persona</strong></p>
+          <p>Incluye mini beef wellington, tartar de atún, mejillón gratinado y shot gourmet.</p>
+          <p class="c4y-price">$109,000 MXN<small>$1,557 por persona</small></p>
+        </article>
+
+        <article class="c4y-plan">
+          <h3>Exclusivo</h3>
+          <p><strong>10 canapés de autor</strong></p>
+          <p>Wagyu sellado, foie gras, mini lobster roll, caviar en blini y selección de alta cocina contemporánea.</p>
+          <p class="c4y-price">$149,500 MXN<small>$2,135 por persona</small></p>
+        </article>
       </div>
-    </section>
+    </div>
 
-    <section>
-      <h2>Galería</h2>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=900&q=80" alt="Montaje de plato gourmet">
-        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=900&q=80" alt="Mesa elegante para evento">
-        <img src="https://images.unsplash.com/photo-1514517220017-8ce97a34a7b6?auto=format&fit=crop&w=900&q=80" alt="Chef preparando menú">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Restaurante con ambiente cálido">
-      </div>
-    </section>
+    <div class="c4y-block">
+      <h2 class="c4y-subtitle">Cronograma Operativo</h2>
+      <ol class="c4y-timeline">
+        <li><strong>Hito 1:</strong> Confirmación y planeación estratégica.</li>
+        <li><strong>Hito 2:</strong> Abasto y producción base.</li>
+        <li><strong>Hito 3:</strong> Producción final y empaque.</li>
+        <li><strong>Hito 4:</strong> Montaje, briefing y servicio.</li>
+        <li><strong>Hito 5:</strong> Supervisión activa durante el evento.</li>
+        <li><strong>Hito 6:</strong> Desmontaje y cierre formal.</li>
+      </ol>
+    </div>
 
-    <section id="contacto">
-      <div class="contact">
-        <h2>Formulario para captar clientes</h2>
-        <p>Completa este formulario y se abrirá un correo para negociar detalles y pagos contigo.</p>
-        <form id="leadForm">
-          <div>
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" required>
-          </div>
-          <div>
-            <label for="email">Correo</label>
-            <input id="email" name="email" type="email" required>
-          </div>
-          <div>
-            <label for="telefono">Teléfono</label>
-            <input id="telefono" name="telefono" required>
-          </div>
-          <div>
-            <label for="servicio">Servicio de interés</label>
-            <select id="servicio" name="servicio" required>
-              <option value="">Selecciona</option>
-              <option>Evento privado</option>
-              <option>Menú personalizado</option>
-              <option>Consultoría</option>
-              <option>Chef a domicilio</option>
-            </select>
-          </div>
-          <div class="full">
-            <label for="mensaje">Detalles del evento / solicitud</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-          </div>
-          <div class="full">
-            <button type="submit">Enviar solicitud por email</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
+    <div class="c4y-block c4y-hero-image" role="img" aria-label="Alta cocina, experiencia y consultoría estratégica">
+      <h2 class="c4y-title" style="color:#fff; font-size:clamp(1.7rem,4vw,2.6rem);">
+        Alta Cocina · Experiencia · Consultoría Estratégica
+      </h2>
+    </div>
 
-  <footer>
-    © 2026 Chef Franko Salgado · Puerto Vallarta · WhatsApp +52 322 160 6843
-  </footer>
-
-  <script>
-    (function () {
-      const DESTINO_EMAIL = "chef@franko.com";
-      const FORM_SELECTORES = ["#leadForm", "form[data-form-id='contact']", "form.sqs-block-form"];
-
-      function obtenerValor(form, candidatos) {
-        for (const selector of candidatos) {
-          const campo = form.querySelector(selector);
-          if (campo && typeof campo.value === "string" && campo.value.trim()) {
-            return campo.value.trim();
-          }
-        }
-        return "";
-      }
-
-      function construirCorreo(form) {
-        const nombre = obtenerValor(form, ["#nombre", "[name='nombre']", "[name='first-name']", "[name='name']"]);
-        const email = obtenerValor(form, ["#email", "[name='email']"]);
-        const telefono = obtenerValor(form, ["#telefono", "[name='telefono']", "[name='phone']", "[type='tel']"]);
-        const servicio = obtenerValor(form, ["#servicio", "[name='servicio']", "[name='subject']"]);
-        const mensaje = obtenerValor(form, ["#mensaje", "[name='mensaje']", "[name='message']", "textarea"]);
-
-        const subject = encodeURIComponent(`Nueva solicitud web - ${servicio || "Consulta"}`);
-        const body = encodeURIComponent(
-          `Nombre: ${nombre || "No especificado"}\n` +
-          `Correo: ${email || "No especificado"}\n` +
-          `Teléfono: ${telefono || "No especificado"}\n` +
-          `Servicio: ${servicio || "No especificado"}\n\n` +
-          `Detalles:\n${mensaje || "Sin mensaje"}\n\n` +
-          `*Favor de responder con propuesta y opciones de pago.*`
-        );
-
-        return `mailto:${DESTINO_EMAIL}?subject=${subject}&body=${body}`;
-      }
-
-      function esFormularioObjetivo(form) {
-        return FORM_SELECTORES.some((selector) => form.matches(selector));
-      }
-
-      document.addEventListener("submit", function (e) {
-        const form = e.target;
-
-        if (!(form instanceof HTMLFormElement) || !esFormularioObjetivo(form)) {
-          return;
-        }
-
-        e.preventDefault();
-        window.location.href = construirCorreo(form);
-      });
-    })();
-  </script>
+    <div class="c4y-block">
+      <p class="c4y-footer">
+        <strong>Chef 4 You</strong>
+        Firma especializada en experiencias gastronómicas premium y consultoría estratégica. Fundada por Chef Franco,
+        autor de "La Receta del Éxito", integrando alta cocina y visión empresarial.
+        <br><br>
+        © 2026 Chef 4 You. Todos los derechos reservados.
+      </p>
+    </div>
+  </section>
 </body>
 </html>
