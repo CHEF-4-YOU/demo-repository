@@ -7,284 +7,252 @@
   <title>Cotización Gastronómica | Chef 4 You</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     /*
-      Estilos encapsulados para uso en Squarespace.
-      Puedes pegar TODO este archivo en un bloque de código,
-      o copiar desde <section class="c4y-quote"> hasta </section>
-      y mover los estilos al CSS personalizado del sitio.
+      Versión adaptada para Squarespace.
+      Recomendación:
+      1) Pega este bloque <style> en Design > Custom CSS.
+      2) Pega solo el contenido de <section id="c4y-quote"> en un bloque Code.
     */
-    :root {
-      --c4y-bg: #f8f8f7;
-      --c4y-surface: #ffffff;
-      --c4y-text: #3e4451;
-      --c4y-muted: #667085;
-      --c4y-accent: #c6a75e;
-      --c4y-accent-soft: #efe5cd;
-      --c4y-line: #e8dfc9;
-      --c4y-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+    #c4y-quote,
+    #c4y-quote * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
+    #c4y-quote {
+      --bg-cream: #f6f1e8;
+      --black: #0f1115;
+      --gray: #4b5563;
+      --gray-soft: #e5e7eb;
+      --red: #b11226;
+      --shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
 
-    body {
-      margin: 0;
-      background: var(--c4y-bg);
-      color: var(--c4y-text);
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    .c4y-quote {
-      width: min(1120px, 92vw);
+      width: min(1140px, 92vw);
       margin: 0 auto;
-      padding: 32px 0 72px;
+      padding: 40px 0 80px;
+      color: var(--gray);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
 
-    .c4y-block {
-      padding: 56px 28px;
-      background: var(--c4y-surface);
-      border-radius: 22px;
-      border: 1px solid #f0eadf;
-      box-shadow: var(--c4y-shadow);
+    #c4y-quote .c4y-block {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: clamp(28px, 5vw, 50px);
+      margin-top: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-soft);
+    }
+
+    #c4y-quote .c4y-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.3rem);
+      color: var(--black);
+      text-align: center;
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    #c4y-quote .c4y-subtitle {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.1rem, 2.3vw, 1.2rem);
+      color: var(--red);
+      text-align: center;
+      margin: 0 0 18px;
+      letter-spacing: 0.05em;
+      line-height: 1.35;
+    }
+
+    #c4y-quote .c4y-tagline {
+      text-align: center;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    #c4y-quote .c4y-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+
+    #c4y-quote .c4y-meta strong,
+    #c4y-quote .c4y-plan h3,
+    #c4y-quote .c4y-price {
+      color: var(--black);
+    }
+
+    #c4y-quote .c4y-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
       margin-top: 26px;
     }
 
-    .c4y-block--soft {
-      background: linear-gradient(180deg, #fffdf8 0%, #fff 100%);
-      border: 1px solid var(--c4y-line);
-    }
-
-    .c4y-title,
-    .c4y-subtitle,
-    .c4y-plan h3 {
-      margin: 0;
-      font-family: "Playfair Display", Georgia, serif;
-      line-height: 1.2;
-      color: #1f2937;
-    }
-
-    .c4y-title {
-      font-size: clamp(2rem, 5.6vw, 3.3rem);
+    #c4y-quote .c4y-pill {
+      border-radius: 999px;
+      padding: 10px 14px;
       text-align: center;
-      margin-top: 10px;
-    }
-
-    .c4y-subtitle {
-      text-align: center;
-      font-size: clamp(1.15rem, 3vw, 1.6rem);
-      color: var(--c4y-accent);
-      margin-bottom: 18px;
-    }
-
-    .c4y-tagline {
-      text-align: center;
-      color: var(--c4y-muted);
-      margin: 0;
+      background: #fff;
+      border: 1px solid var(--red);
+      color: var(--red);
       font-weight: 500;
-      letter-spacing: 0.02em;
+      font-size: 0.9rem;
     }
 
-    .c4y-meta {
-      margin-top: 24px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      color: var(--c4y-muted);
-      font-size: 0.95rem;
-    }
-
-    .c4y-meta strong { color: #1f2937; }
-
-    .c4y-copy {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      line-height: 1.75;
-      color: var(--c4y-muted);
-    }
-
-    .c4y-plans {
+    #c4y-quote .c4y-plans {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+      gap: 20px;
+      margin-top: 28px;
     }
 
-    .c4y-plan {
-      border-radius: 16px;
-      border: 1px solid var(--c4y-line);
-      padding: 24px;
-      background: #fff;
+    #c4y-quote .c4y-plan {
+      border: 1px solid var(--gray-soft);
+      border-radius: 14px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
+      background: #fff;
     }
 
-    .c4y-plan--featured {
-      border: 2px solid var(--c4y-accent);
-      transform: translateY(-6px);
-      box-shadow: 0 14px 28px rgba(198, 167, 94, 0.2);
+    #c4y-quote .c4y-plan--featured {
+      border: 2px solid var(--red);
+      box-shadow: 0 18px 30px rgba(177, 18, 38, 0.15);
     }
 
-    .c4y-plan p {
-      margin: 0 0 12px;
-      color: var(--c4y-muted);
-      font-size: 0.95rem;
-      line-height: 1.55;
+    #c4y-quote .c4y-plan h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      margin: 0 0 8px;
+      font-size: 1.45rem;
     }
 
-    .c4y-price {
+    #c4y-quote .c4y-plan p {
+      font-size: 0.94rem;
+      margin: 0 0 10px;
+    }
+
+    #c4y-quote .c4y-price {
       margin-top: auto;
       font-weight: 700;
-      font-size: 1.25rem;
-      color: #1f2937;
+      font-size: 1.2rem;
     }
 
-    .c4y-price small {
+    #c4y-quote .c4y-price small {
       display: block;
-      font-size: 0.87rem;
       font-weight: 500;
-      color: var(--c4y-muted);
+      color: var(--gray);
       margin-top: 4px;
     }
 
-    .c4y-timeline {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      max-width: 760px;
-      margin-inline: auto;
-      display: grid;
-      gap: 12px;
-    }
-
-    .c4y-timeline li {
-      background: #fff;
-      border: 1px solid var(--c4y-line);
-      border-left: 4px solid var(--c4y-accent);
-      border-radius: 10px;
-      padding: 12px 14px;
-      color: #4b5563;
-    }
-
-    .c4y-hero-image {
-      min-height: 240px;
-      border-radius: 16px;
-      background: linear-gradient(100deg, rgba(16, 24, 40, 0.52), rgba(16, 24, 40, 0.46)),
-        url("HERO_GASTRONOMIA.jpg") center/cover no-repeat;
+    #c4y-quote .c4y-banner {
+      margin-top: 28px;
+      min-height: 320px;
+      border-radius: var(--radius);
       display: grid;
       place-items: center;
       text-align: center;
       color: #fff;
-      padding: 30px;
+      padding: 24px;
+      background: linear-gradient(110deg, rgba(0, 0, 0, 0.7), rgba(177, 18, 38, 0.6)),
+        url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
     }
 
-    .c4y-footer {
+    #c4y-quote .c4y-footer {
       text-align: center;
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--c4y-muted);
-      line-height: 1.75;
+      line-height: 1.7;
+      font-size: 0.95rem;
     }
 
-    .c4y-footer strong {
-      color: #1f2937;
+    #c4y-quote .c4y-footer strong {
+      display: block;
       font-family: "Playfair Display", Georgia, serif;
       font-size: 1.35rem;
-      display: block;
-      margin-bottom: 6px;
+      color: var(--black);
+      margin-bottom: 8px;
     }
 
-    @media (max-width: 960px) {
-      .c4y-plans {
+    @media (max-width: 980px) {
+      #c4y-quote .c4y-plans,
+      #c4y-quote .c4y-highlights {
         grid-template-columns: 1fr;
-      }
-
-      .c4y-plan--featured {
-        transform: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .c4y-block {
-        padding: 42px 18px;
-        border-radius: 16px;
       }
     }
   </style>
 </head>
-<body>
-  <section class="c4y-quote" aria-label="Cotización de servicios gastronómicos">
-    <div class="c4y-block c4y-block--soft">
+<body style="margin:0;background:#f6f1e8;">
+  <section id="c4y-quote" aria-label="Cotización de servicios gastronómicos Chef 4 You">
+    <div class="c4y-block">
       <p class="c4y-subtitle">Cotización de Servicios Gastronómicos</p>
       <h1 class="c4y-title">Chef 4 You</h1>
       <p class="c4y-tagline">Experiencia Cocktail Premium · 70 invitados</p>
+
       <div class="c4y-meta">
-        <span><strong>Cliente:</strong> VANESABORRERO</span>
-        <span><strong>Fecha:</strong> [Colocar fecha]</span>
+        <span><strong>Cliente:</strong> Vanessa Borrero</span>
+        <span><strong>Fecha:</strong> 28 de febrero de 2026</span>
+        <span><strong>Sede:</strong> Ciudad de México</span>
       </div>
     </div>
 
     <div class="c4y-block">
-      <h2 class="c4y-subtitle">Experiencia Integral · Incluye Todo</h2>
-      <p class="c4y-copy">
-        Planeación estratégica, compras, producción culinaria, montaje completo,
-        cristalería, vajilla, logística operativa, servicio profesional,
+      <h2 class="c4y-subtitle">Propuesta Integral · Todo Incluido</h2>
+      <p style="text-align:center;max-width:850px;margin:0 auto;">
+        Diseñamos una experiencia gastronómica de alto impacto cuidando cada detalle: planeación estratégica,
+        compras, producción culinaria, montaje estético, logística operativa, staff profesional,
         cantinero y supervisión directa del Chef Ejecutivo.
       </p>
+
+      <div class="c4y-highlights">
+        <div class="c4y-pill">Mise en place profesional</div>
+        <div class="c4y-pill">Vajilla y cristalería premium</div>
+        <div class="c4y-pill">Cantinero especializado</div>
+        <div class="c4y-pill">Coordinación integral</div>
+      </div>
     </div>
 
-    <div class="c4y-block c4y-block--soft">
+    <div class="c4y-block">
       <h2 class="c4y-subtitle">Opciones de Experiencia</h2>
+
       <div class="c4y-plans">
         <article class="c4y-plan">
-          <h3>Gold Accesible</h3>
+          <h3>Gold</h3>
           <p><strong>7 canapés por persona</strong></p>
-          <p>Prosciutto relleno, roll de salmón cítrico, mil hojas de papa trufada, vasito camarón especiado, bocado nori fresco, higo con queso cabra.</p>
+          <p>Prosciutto relleno, roll de salmón cítrico, milhojas trufada, camarón especiado, bocado nori fresco e higo con queso de cabra.</p>
           <p class="c4y-price">$68,500 MXN<small>$978 por persona</small></p>
         </article>
 
         <article class="c4y-plan c4y-plan--featured">
           <h3>Premium</h3>
           <p><strong>9 canapés por persona</strong></p>
-          <p>Incluye mini beef wellington, tartar de atún, mejillón gratinado y shot gourmet.</p>
+          <p>Mini beef wellington, tartar de atún, mejillón gratinado, estación fría selecta y shot gourmet.</p>
           <p class="c4y-price">$109,000 MXN<small>$1,557 por persona</small></p>
         </article>
 
         <article class="c4y-plan">
           <h3>Exclusivo</h3>
           <p><strong>10 canapés de autor</strong></p>
-          <p>Wagyu sellado, foie gras, mini lobster roll, caviar en blini y selección de alta cocina contemporánea.</p>
+          <p>Wagyu sellado, foie gras, mini lobster roll, caviar en blini y alta cocina contemporánea.</p>
           <p class="c4y-price">$149,500 MXN<small>$2,135 por persona</small></p>
         </article>
       </div>
     </div>
 
-    <div class="c4y-block">
-      <h2 class="c4y-subtitle">Cronograma Operativo</h2>
-      <ol class="c4y-timeline">
-        <li><strong>Hito 1:</strong> Confirmación y planeación estratégica.</li>
-        <li><strong>Hito 2:</strong> Abasto y producción base.</li>
-        <li><strong>Hito 3:</strong> Producción final y empaque.</li>
-        <li><strong>Hito 4:</strong> Montaje, briefing y servicio.</li>
-        <li><strong>Hito 5:</strong> Supervisión activa durante el evento.</li>
-        <li><strong>Hito 6:</strong> Desmontaje y cierre formal.</li>
-      </ol>
-    </div>
-
-    <div class="c4y-block c4y-hero-image" role="img" aria-label="Alta cocina, experiencia y consultoría estratégica">
-      <h2 class="c4y-title" style="color:#fff; font-size:clamp(1.7rem,4vw,2.6rem);">
-        Alta Cocina · Experiencia · Consultoría Estratégica
-      </h2>
+    <div class="c4y-banner">
+      <div>
+        <h2 class="c4y-title" style="color:#fff;">Alta Cocina · Elegancia · Experiencia</h2>
+        <p>Integramos sabor, estética y narrativa gastronómica para transformar tu evento en una experiencia memorable.</p>
+      </div>
     </div>
 
     <div class="c4y-block">
       <p class="c4y-footer">
         <strong>Chef 4 You</strong>
-        Firma especializada en experiencias gastronómicas premium y consultoría estratégica. Fundada por Chef Franco,
-        autor de "La Receta del Éxito", integrando alta cocina y visión empresarial.
+        Firma especializada en experiencias gastronómicas premium y consultoría estratégica.
+        Fundada por Chef Franco, autor de “La Receta del Éxito”.
         <br><br>
         © 2026 Chef 4 You. Todos los derechos reservados.
       </p>
